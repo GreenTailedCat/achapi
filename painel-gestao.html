@@ -233,14 +233,11 @@ function showTab(tab,el){
 }
 
 async function carregarTudo(){
-  console.log('carregando com token:', userToken ? 'sim' : 'não');
   const[cats,emps,planos]=await Promise.all([
-    fetch(`${SUPABASE_URL}/rest/v1/categoria?order=id`,{headers:getH()}).then(r=>{console.log('cats status:',r.status);return r.json()}),
-    fetch(`${SUPABASE_URL}/rest/v1/empresas?order=id`,{headers:getH()}).then(r=>{console.log('emps status:',r.status);return r.json()}),
+    fetch(`${SUPABASE_URL}/rest/v1/categoria?order=id`,{headers:getH()}).then(r=>r.json()),
+    fetch(`${SUPABASE_URL}/rest/v1/empresas?order=id`,{headers:getH()}).then(r=>r.json()),
     fetch(`${SUPABASE_URL}/rest/v1/planos?order=empresa_id`,{headers:getH()}).then(r=>r.json())
   ]);
-  console.log('cats:', cats);
-  console.log('emps:', emps);
   empresasCache=emps;planosCache=planos;
 
   // Stats
@@ -253,8 +250,15 @@ async function carregarTudo(){
   document.getElementById('s-cliques').textContent=cliquesTotal;
 
   const catSel=document.getElementById('emp-categoria');
-  catSel.innerHTML='<option value="">Selecione...</option>';
-  cats.forEach(c=>catSel.innerHTML+=`<option value="${c.id}">${c.icone} ${c.nome}</option>`);
+  while(catSel.options.length>0) catSel.remove(0);
+  const defOpt=document.createElement('option');
+  defOpt.value='';defOpt.textContent='Selecione...';catSel.appendChild(defOpt);
+  cats.forEach(c=>{
+    const opt=document.createElement('option');
+    opt.value=c.id;opt.textContent=c.icone+' '+c.nome;
+    catSel.appendChild(opt);
+  });
+  console.log('categorias no select:', catSel.options.length);
 
   const empSel=document.getElementById('plano-empresa');
   empSel.innerHTML='<option value="">Selecione a empresa...</option>';
