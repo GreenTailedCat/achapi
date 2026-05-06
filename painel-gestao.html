@@ -3,394 +3,475 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AchaPI — Compare academias, autoescolas e cursos em Teresina</title>
-<meta name="description" content="Compare preços de academias, autoescolas e escolas de idiomas em Teresina, PI. Encontre o melhor serviço pelo menor preço com o AchaPI.">
-<meta name="keywords" content="academia Teresina, autoescola Teresina, curso inglês Teresina, comparar preços Teresina">
-<meta name="robots" content="index, follow">
-<meta name="author" content="AchaPI">
-<meta property="og:title" content="AchaPI — Compare serviços em Teresina">
-<meta property="og:description" content="Compare preços de academias, autoescolas e escolas de idiomas em Teresina. Grátis e sem cadastro.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AchaPI","url":"https://achapi.com.br","description":"Comparador de serviços em Teresina, Piauí"}</script>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>AchaPI — Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#00C896;--green-dark:#00A87E;--green-light:#E6FBF5;--ink:#0D1117;--ink2:#24292F;--muted:#656D76;--border:#D0D7DE;--bg:#F6F8FA;--white:#FFFFFF;--radius:14px;--shadow:0 1px 3px rgba(13,17,23,.08),0 4px 20px rgba(13,17,23,.06);--shadow-lg:0 8px 40px rgba(13,17,23,.12)}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
-.ad-bar{background:var(--white);border-bottom:1px solid var(--border);text-align:center;padding:7px 16px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.header-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
-.logo-mark{background:var(--ink);color:white;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:14px}
-.logo-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:-.03em}
-.logo-name span{color:var(--green)}
-.header-right{display:flex;align-items:center;gap:12px}
-.badge{font-size:12px;font-weight:500;color:var(--muted);background:var(--bg);border:1px solid var(--border);padding:5px 12px;border-radius:99px}
-.ig-link{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .15s}
-.ig-link:hover{color:white}
-.hero{background:var(--ink);padding:64px 24px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,200,150,.15) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1100px;margin:0 auto;position:relative}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,.15);color:var(--green);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;margin-bottom:20px;border:1px solid rgba(0,200,150,.25)}
-.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(32px,5vw,58px);font-weight:800;color:white;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--green)}
-.hero p{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:36px;font-weight:300;max-width:480px;line-height:1.7}
-.stats-bar{display:flex;gap:32px;margin-bottom:36px;flex-wrap:wrap}
-.stat-item{display:flex;flex-direction:column}
-.stat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;color:var(--green);line-height:1}
-.stat-lbl{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
-.hero-cats{display:flex;gap:12px;flex-wrap:wrap}
-.hero-cat-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:16px 24px;cursor:pointer;transition:all .2s;color:white;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;text-align:left}
-.hero-cat-btn:hover{background:rgba(0,200,150,.2);border-color:var(--green);transform:translateY(-2px)}
-.hero-cat-btn.active{background:var(--green);border-color:var(--green);color:var(--ink)}
-.hero-cat-emoji{font-size:28px}
-.hero-cat-info{}
-.hero-cat-name{font-weight:700;font-size:15px}
-.hero-cat-count{font-size:12px;opacity:.6;margin-top:2px}
-.search-box{display:flex;gap:10px;max-width:560px}
-.search-box input{flex:1;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:12px;padding:13px 18px;font-size:15px;font-family:'DM Sans',sans-serif;color:white;transition:border-color .2s}
-.search-box input::placeholder{color:rgba(255,255,255,.35)}
-.search-box input:focus{outline:none;border-color:var(--green)}
-.btn-search{background:var(--green);color:var(--ink);border:none;border-radius:12px;padding:13px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s;white-space:nowrap}
-.btn-search:hover{background:var(--green-dark)}
-.categories{max-width:1100px;margin:48px auto 0;padding:0 24px}
-.section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:20px;letter-spacing:-.02em}
-.cat-grid{display:flex;flex-direction:row;gap:12px;margin-bottom:32px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
-.cat-grid::-webkit-scrollbar{display:none}
-.cat-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:16px 20px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:12px;flex-shrink:0;white-space:nowrap}
-.cat-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:var(--shadow)}
-.cat-card.active{border-color:var(--green);background:var(--green-light)}
-.cat-emoji{font-size:24px}
-.cat-info h3{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px}
-.cat-info span{font-size:12px;color:var(--muted)}
-.listings{max-width:1100px;margin:0 auto;padding:0 24px 64px}
-.filters-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:12px 16px}
-.filter-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.filter-select{border:1.5px solid var(--border);border-radius:8px;padding:7px 12px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--ink2);background:var(--bg);cursor:pointer;transition:border-color .15s}
-.filter-select:focus{outline:none;border-color:var(--green)}
-.filter-divider{width:1px;height:20px;background:var(--border)}
-.btn-clear{background:none;border:none;font-size:12px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;padding:4px 8px;border-radius:6px;transition:all .15s}
-.btn-clear:hover{color:var(--ink);background:var(--bg)}
-.listings-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px}
-.results-count{font-size:14px;color:var(--muted);font-weight:500}
-.results-count strong{color:var(--ink)}
-.order-row{display:flex;gap:6px;flex-wrap:wrap}
-.order-btn{font-size:12px;font-weight:500;padding:6px 12px;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--muted);cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif}
-.order-btn:hover{border-color:var(--green);color:var(--green)}
-.order-btn.active{background:var(--green);border-color:var(--green);color:white}
-.companies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
-.company-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
-.company-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.company-card.destaque{border-color:var(--green)}
-.destaque-badge{position:absolute;top:0;right:0;background:var(--green);color:var(--ink);font-size:10px;font-weight:700;padding:4px 10px;border-radius:0 14px 0 10px;text-transform:uppercase;letter-spacing:.06em}
-.company-name{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.company-bairro{font-size:13px;color:var(--muted)}
-.company-desc{font-size:13px;color:var(--muted);line-height:1.6}
-.company-updated{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
-.company-updated.old{color:#E57373}
-.plans{display:flex;flex-direction:column;gap:8px}
-.plan-item{display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-radius:8px;padding:10px 14px}
-.plan-item.melhor{background:var(--green-light);border:1px solid rgba(0,200,150,.3)}
-.plan-name{font-size:13px;font-weight:500;color:var(--ink2);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.plan-price{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;color:var(--green-dark);white-space:nowrap}
-.melhor-badge{font-size:9px;font-weight:700;background:var(--green);color:white;padding:2px 6px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
-.company-actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn-wpp{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:#25D366;color:white;border:none;border-radius:8px;padding:10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;text-decoration:none;transition:background .15s;min-width:110px}
-.btn-wpp:hover{background:#1ebe5d}
-.btn-tel{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg);color:var(--ink2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;text-decoration:none;transition:all .15s}
-.btn-tel:hover{border-color:var(--green);color:var(--green)}
-.destaque-cta{background:var(--ink);border-radius:16px;padding:32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.destaque-cta-text h3{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:white;margin-bottom:6px}
-.destaque-cta-text p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.6}
-.btn-destaque{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;padding:14px 28px;border-radius:12px;text-decoration:none;transition:all .2s;white-space:nowrap;border:none;cursor:pointer}
-.btn-destaque:hover{background:var(--green-dark);color:white;transform:translateY(-1px)}
-.para-empresas{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;margin-bottom:48px}
-.para-empresas h3{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;color:var(--ink);margin-bottom:12px}
-.para-empresas p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:24px;max-width:600px}
-.beneficios{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:24px}
-.beneficio{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink2);line-height:1.5}
-.beneficio span{font-size:18px;flex-shrink:0}
-.empty-state{text-align:center;padding:64px 24px;color:var(--muted)}
-.empty-state .emoji{font-size:48px;margin-bottom:16px}
-.empty-state h3{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:8px}
-.loading-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
-.skeleton{background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);height:240px;position:relative;overflow:hidden}
-.skeleton::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.6) 50%,transparent 100%);animation:shimmer 1.4s infinite}
-@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
-.footer-inner{max-width:1100px;margin:0 auto;padding:32px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:white}
-.footer-logo span{color:var(--green)}
-.footer-copy{font-size:12px;margin-top:4px}
-.footer-ig{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;transition:color .15s}
-.footer-ig:hover{color:white}
-.footer-links{display:flex;gap:16px}
-.footer-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none}
-.footer-links a:hover{color:var(--green)}
-@media(max-width:640px){.hero{padding:40px 16px 56px}.search-box{flex-direction:column}.companies-grid{grid-template-columns:1fr}.badge{display:none}.destaque-cta{flex-direction:column;text-align:center}}
+:root{--green:#00C896;--green-dark:#00A87E;--ink:#0D1117;--ink2:#24292F;--muted:#656D76;--border:#D0D7DE;--bg:#F6F8FA;--white:#fff;--red:#CF222E;--radius:12px;--shadow:0 1px 3px rgba(13,17,23,.08),0 4px 20px rgba(13,17,23,.06)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--ink)}
+.box{background:var(--white);border-radius:20px;padding:40px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.box h2{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px}
+.box h2 span{color:var(--green)}
+.box p{font-size:13px;color:var(--muted);margin-bottom:28px}
+label{display:block;font-size:12px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+input,select,textarea{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--ink);margin-bottom:16px;transition:border-color .15s;background:white}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green)}
+textarea{resize:vertical;min-height:80px;margin-bottom:16px}
+.btn{width:100%;background:var(--ink);color:white;border:none;border-radius:8px;padding:12px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--green);color:var(--ink)}
+.btn-green{background:var(--green);color:var(--ink);border:none;border-radius:8px;padding:10px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .15s}
+.btn-green:hover{background:var(--green-dark);color:white}
+.err{color:var(--red);font-size:13px;margin-top:8px;display:none;text-align:center}
+#admin{display:none}
+.topbar{background:var(--ink);height:56px;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.topbar-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:white}
+.topbar-logo span{color:var(--green)}
+.topbar-right{display:flex;gap:10px}
+.btn-sm{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;transition:all .15s}
+.btn-sm:hover{border-color:var(--green);color:var(--green)}
+.btn-sm.danger:hover{border-color:var(--red);color:var(--red)}
+.stats{background:var(--ink);padding:0 24px 20px}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px 20px}
+.stat .n{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:var(--green)}
+.stat .l{font-size:12px;color:rgba(255,255,255,.45);margin-top:4px}
+.body{max-width:1100px;margin:0 auto;padding:28px 24px}
+.tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:4px;width:fit-content}
+.tab{padding:8px 20px;border-radius:7px;font-size:14px;font-weight:500;cursor:pointer;color:var(--muted);border:none;background:none;font-family:'DM Sans',sans-serif;transition:all .15s}
+.tab.active{background:var(--ink);color:white}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:24px}
+.card h3{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:700;margin-bottom:20px;color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.check{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;cursor:pointer;margin-bottom:16px}
+.check input{width:auto;margin:0}
+.ok{background:#DCFCE7;border:1px solid #86EFAC;border-radius:8px;padding:10px 16px;font-size:13px;color:#166534;margin-top:12px;display:none}
+.search-input{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:9px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--ink);margin-bottom:16px}
+.search-input:focus{outline:none;border-color:var(--green)}
+.table-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--bg);padding:12px 16px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+td{padding:12px 16px;border-bottom:1px solid var(--bg);color:var(--ink2);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.badge-on{background:#DCFCE7;color:#166534;font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px}
+.badge-off{background:#FEF2F2;color:#991B1B;font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px}
+.badge-star{background:#FEF9C3;color:#854D0E;font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px}
+.btn-edit{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;color:var(--ink2);font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-edit:hover{border-color:var(--green);color:var(--green)}
+.btn-del{background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;color:var(--red);font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-del:hover{background:var(--red);color:white;border-color:var(--red)}
+.cliques{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--green);font-size:15px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}.stats-inner{grid-template-columns:1fr 1fr}.body{padding:16px}}
 </style>
 </head>
 <body>
 
-<div class="ad-bar">Publicidade — Este site é gratuito e mantido por anúncios</div>
-
-<header>
-  <div class="header-inner">
-    <a class="logo" href="index.html">
-      <div class="logo-mark">AP</div>
-      <span class="logo-name">Acha<span>PI</span></span>
-    </a>
-    <div class="header-right">
-      <a class="ig-link" href="https://www.tiktok.com/@acha.brasil" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
-        @acha.brasil
-      </a>
-      <span class="badge">📍 Teresina, PI</span>
-    </div>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">📍 Teresina, Piauí</div>
-    <h1>O que você<br><em>procura?</em></h1>
-    <p>Compare preços de serviços em Teresina antes de assinar. Grátis, sem cadastro.</p>
-    <div id="hero-cats" class="hero-cats"></div>
-    <div class="stats-bar" style="margin-top:32px">
-      <div class="stat-item"><span class="stat-num" id="stat-empresas">—</span><span class="stat-lbl">empresas listadas</span></div>
-      <div class="stat-item"><span class="stat-num">100%</span><span class="stat-lbl">gratuito</span></div>
-    </div>
+<div id="login">
+  <div class="box">
+    <h2>Acha<span>PI</span></h2>
+    <p>Painel administrativo</p>
+    <label>Email</label>
+    <input type="email" id="email" placeholder="seu@email.com" onkeydown="if(event.key==='Enter')login()">
+    <label>Senha</label>
+    <input type="password" id="senha" placeholder="Sua senha" onkeydown="if(event.key==='Enter')login()">
+    <button class="btn" onclick="login()">Entrar</button>
+    <div class="err" id="err"></div>
   </div>
 </div>
 
-<div class="categories">
-  <div class="section-title">Categorias</div>
-  <div class="cat-grid" id="cat-grid">
-    <div class="cat-card active" onclick="selecionarCategoria(null,this)">
-      <span class="cat-emoji">🔍</span>
-      <div class="cat-info"><h3>Todos</h3><span>Ver tudo</span></div>
+<div id="admin">
+  <div class="topbar">
+    <div class="topbar-logo">Acha<span>PI</span> <span style="font-size:12px;color:rgba(255,255,255,.35);font-family:'DM Sans';font-weight:400">Admin</span></div>
+    <div class="topbar-right">
+      <a class="btn-sm" href="index.html" target="_blank">Ver site →</a>
+      <button class="btn-sm danger" onclick="sair()">Sair</button>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat"><div class="n" id="s1">—</div><div class="l">Empresas ativas</div></div>
+      <div class="stat"><div class="n" id="s2">—</div><div class="l">Em destaque</div></div>
+      <div class="stat"><div class="n" id="s3">—</div><div class="l">Planos cadastrados</div></div>
+      <div class="stat"><div class="n" id="s4">—</div><div class="l">Cliques totais</div></div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="tabs">
+      <button class="tab active" onclick="aba('emp',this)">🏢 Empresas</button>
+      <button class="tab" onclick="aba('plano',this)">💰 Planos</button>
+    </div>
+
+    <div id="tab-emp">
+      <div class="card">
+        <h3>Adicionar empresa</h3>
+        <div class="grid2">
+          <div><label>Nome *</label><input type="text" id="e-nome" placeholder="Nome da empresa"></div>
+          <div><label>Categoria *</label><select id="e-cat"><option value="">Selecione...</option></select></div>
+          <div><label>Bairro</label><input type="text" id="e-bairro" placeholder="Ex: Fátima, Centro"></div>
+          <div><label>Endereço</label><input type="text" id="e-end" placeholder="Rua, número"></div>
+          <div><label>Telefone</label><input type="text" id="e-tel" placeholder="(86) 3333-3333"></div>
+          <div><label>WhatsApp</label><input type="text" id="e-wpp" placeholder="86999999999"></div>
+          <div><label>Site</label><input type="text" id="e-site" placeholder="https://"></div>
+          <div><label>Instagram</label><input type="text" id="e-ig" placeholder="https://instagram.com/empresa"></div>
+          <div><label>Atualização de preços</label><input type="date" id="e-data"></div>
+        </div>
+        <label>Descrição</label>
+        <textarea id="e-desc" placeholder="Breve descrição..."></textarea>
+        <div style="display:flex;gap:24px">
+          <label class="check"><input type="checkbox" id="e-dest"> ⭐ Destaque</label>
+          <label class="check"><input type="checkbox" id="e-ativo" checked> ✅ Ativo</label>
+        </div>
+        <button class="btn-green" onclick="salvarEmp()">Salvar empresa</button>
+        <div class="ok" id="ok-emp">✓ Empresa salva!</div>
+      </div>
+      <input class="search-input" id="busca-emp" placeholder="🔍 Buscar empresa..." oninput="filtrarEmps()">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nome</th><th>Bairro</th><th>Cliques</th><th>Status</th><th>Destaque</th><th>Atualizado</th><th></th></tr></thead>
+          <tbody id="tbody-emp"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="tab-plano" style="display:none">
+      <div class="card">
+        <h3>Adicionar plano</h3>
+        <div class="grid2">
+          <div><label>Empresa *</label><select id="p-emp"><option value="">Selecione...</option></select></div>
+          <div><label>Nome do plano *</label><input type="text" id="p-nome" placeholder="Ex: Mensalidade básica"></div>
+          <div><label>Preço (R$/mês) *</label><input type="number" id="p-preco" placeholder="150.00" step="0.01" min="0"></div>
+          <div><label>Descrição</label><input type="text" id="p-desc" placeholder="O que está incluso..."></div>
+        </div>
+        <label class="check"><input type="checkbox" id="p-dest"> ⭐ Plano destaque</label>
+        <button class="btn-green" onclick="salvarPlano()">Salvar plano</button>
+        <div class="ok" id="ok-plano">✓ Plano salvo!</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Empresa</th><th>Plano</th><th>Preço/mês</th><th>Descrição</th><th></th></tr></thead>
+          <tbody id="tbody-plano"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="listings" id="listings-section" style="display:none">
-  <div style="display:flex;gap:10px;margin-bottom:20px">
-    <input class="admin-search" style="flex:1;border:1.5px solid var(--border);border-radius:8px;padding:9px 14px;font-size:14px;font-family:DM Sans,sans-serif;background:white;color:var(--ink)" type="text" id="search-input" placeholder="🔍 Buscar por nome ou bairro..." oninput="filtrarEmpresas()">
-  </div>
-  <div class="filters-row">
-    <span class="filter-label">Filtrar:</span>
-    <select class="filter-select" id="filtro-bairro" onchange="filtrarEmpresas()" aria-label="Bairro">
-      <option value="">Todos os bairros</option>
-    </select>
-    <div class="filter-divider"></div>
-    <select class="filter-select" id="filtro-preco" onchange="filtrarEmpresas()" aria-label="Preço">
-      <option value="">Qualquer preço</option>
-      <option value="0-100">Até R$100/mês</option>
-      <option value="0-150">Até R$150/mês</option>
-      <option value="0-200">Até R$200/mês</option>
-      <option value="200-500">R$200 a R$500</option>
-      <option value="500-9999">Acima de R$500</option>
-    </select>
-    <button class="btn-clear" onclick="limparFiltros()">✕ Limpar</button>
-  </div>
-
-  <div class="listings-header">
-    <div class="results-count" id="results-count">Carregando...</div>
-    <div class="order-row">
-      <button class="order-btn active" onclick="setOrdem('destaque',this)">⭐ Destaques</button>
-      <button class="order-btn" onclick="setOrdem('nome',this)">A-Z</button>
-      <button class="order-btn" onclick="setOrdem('preco',this)">Menor preço</button>
-      <button class="order-btn" onclick="setOrdem('cliques',this)">🔥 Populares</button>
-    </div>
-  </div>
-
-  <div id="companies-container">
-    <div class="loading-grid">
-      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
-    </div>
-  </div>
-
-  <div class="destaque-cta">
-    <div class="destaque-cta-text">
-      <h3>⭐ Destaque seu negócio</h3>
-      <p>Apareça no topo das buscas e receba mais clientes em Teresina.<br>Apenas <strong style="color:var(--green)">R$9,90/mês</strong>.</p>
-    </div>
-    <a class="btn-destaque" href="https://wa.me/5586000000000?text=Olá!%20Quero%20destacar%20minha%20empresa%20no%20AchaPI" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
-  </div>
-
-  <div class="para-empresas">
-    <h3>Para empresas</h3>
-    <p>Cadastre sua empresa gratuitamente no AchaPI e seja encontrado por pessoas em Teresina que estão comparando serviços antes de assinar.</p>
-    <div class="beneficios">
-      <div class="beneficio"><span>✅</span>Perfil completo com preços e contato</div>
-      <div class="beneficio"><span>📍</span>Encontrado por bairro e categoria</div>
-      <div class="beneficio"><span>💬</span>Botão direto para WhatsApp</div>
-      <div class="beneficio"><span>📊</span>Veja quantos cliques recebeu</div>
-      <div class="beneficio"><span>⭐</span>Destaque por apenas R$9,90/mês</div>
-      <div class="beneficio"><span>🆓</span>Cadastro 100% gratuito</div>
-    </div>
-    <a class="btn-destaque" href="https://wa.me/5586000000000?text=Olá!%20Quero%20cadastrar%20minha%20empresa%20no%20AchaPI" target="_blank" rel="noopener">Cadastrar minha empresa gratuitamente</a>
-  </div>
-</div>
-
-<div class="ad-bar" style="padding:14px">Espaço para anúncio (728×90)</div>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Acha<span>PI</span></div>
-      <div class="footer-copy">© 2026 · Comparador de serviços em Teresina</div>
-    </div>
-    <a class="footer-ig" href="https://www.tiktok.com/@acha.brasil" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
-      @acha.brasil
-    </a>
-    <div class="footer-links">
-      <a href="#">Privacidade</a>
-      <a href="#">Termos</a>
-    </div>
-  </div>
-</footer>
 
 <script>
-const SUPABASE_URL='https://txyewyqknhkidglvqrew.supabase.co';
-const ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4eWV3eXFrbmhraWRnbHZxcmV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MzYxNjcsImV4cCI6MjA5MzMxMjE2N30.C8FymyLFRwiqJf99hFO3W8GuhP8IBO1MEkb9Wdwc1KM';
-const H={'apikey':ANON_KEY,'Authorization':`Bearer ${ANON_KEY}`};
-let todasEmpresas=[],todosPlanos=[],categoriaAtual=null,ordemAtual='destaque';
+const URL = 'https://txyewyqknhkidglvqrew.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4eWV3eXFrbmhraWRnbHZxcmV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MzYxNjcsImV4cCI6MjA5MzMxMjE2N30.C8FymyLFRwiqJf99hFO3W8GuhP8IBO1MEkb9Wdwc1KM';
+let token = null;
+let empsCache = [];
+let planosCache = [];
 
-async function db(t,p=''){const r=await fetch(`${SUPABASE_URL}/rest/v1/${t}?${p}`,{headers:H});return r.json()}
+function h() {
+  return {
+    'apikey': KEY,
+    'Authorization': 'Bearer ' + (token || KEY),
+    'Content-Type': 'application/json',
+    'Prefer': 'return=representation'
+  };
+}
 
-async function init(){
-  const[cats,emps,planos]=await Promise.all([
-    db('categoria','order=id'),
-    db('empresas','ativo=eq.true&order=destaque.desc,nome.asc'),
-    db('planos','order=preco.asc')
-  ]);
-  todasEmpresas=emps;todosPlanos=planos;
-  document.getElementById('stat-empresas').textContent=emps.length;
-  const grid=document.getElementById('cat-grid');
-  const heroGrid=document.getElementById('hero-cats');
-  cats.forEach(cat=>{
-    // Sidebar cats
-    const c=document.createElement('div');c.className='cat-card';
-    const count=emps.filter(e=>e.categoria_id===cat.id).length;
-    c.innerHTML=`<span class="cat-emoji">${cat.icone}</span><div class="cat-info"><h3>${cat.nome}</h3><span>${count} listados</span></div>`;
-    c.onclick=()=>selecionarCategoria(cat.id,c);grid.appendChild(c);
-    // Hero cats
-    const hb=document.createElement('button');hb.className='hero-cat-btn';hb.id=`hero-cat-${cat.id}`;
-    hb.innerHTML=`<span class="hero-cat-emoji">${cat.icone}</span><div class="hero-cat-info"><div class="hero-cat-name">${cat.nome}</div><div class="hero-cat-count">${count} listados em Teresina</div></div>`;
-    hb.onclick=()=>escolherCategoria(cat.id,cat.nome);
-    heroGrid.appendChild(hb);
+async function login() {
+  const email = document.getElementById('email').value.trim();
+  const senha = document.getElementById('senha').value;
+  const err = document.getElementById('err');
+  err.style.display = 'none';
+  if (!email || !senha) { err.textContent = 'Preencha email e senha.'; err.style.display = 'block'; return; }
+  const r = await fetch(URL + '/auth/v1/token?grant_type=password', {
+    method: 'POST',
+    headers: { 'apikey': KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password: senha })
   });
-  const bairros=[...new Set(emps.map(e=>e.bairro).filter(Boolean))].sort();
-  const sel=document.getElementById('filtro-bairro');
-  bairros.forEach(b=>sel.innerHTML+=`<option value="${b}">${b}</option>`);
-  renderEmpresas(todasEmpresas);
+  const d = await r.json();
+  if (d.access_token) {
+    token = d.access_token;
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('admin').style.display = 'block';
+    await carregar();
+  } else {
+    err.textContent = 'Email ou senha incorretos.';
+    err.style.display = 'block';
+  }
 }
 
-function escolherCategoria(id,nome){
-  // Show listings section
-  document.getElementById('listings-section').style.display='block';
-  document.getElementById('listings-section').scrollIntoView({behavior:'smooth',block:'start'});
-  // Update hero cat buttons
-  document.querySelectorAll('.hero-cat-btn').forEach(b=>b.classList.remove('active'));
-  const hb=document.getElementById(`hero-cat-${id}`);if(hb)hb.classList.add('active');
-  // Update sidebar
-  const cards=document.querySelectorAll('.cat-card');
-  cards.forEach(c=>{if(c.querySelector('h3')&&c.querySelector('h3').textContent===nome)c.classList.add('active');else c.classList.remove('active')});
-  categoriaAtual=id;filtrarEmpresas();
+async function sair() {
+  token = null;
+  document.getElementById('login').style.display = 'flex';
+  document.getElementById('admin').style.display = 'none';
+  document.getElementById('senha').value = '';
 }
 
-function selecionarCategoria(id,el){
-  document.getElementById('listings-section').style.display='block';
-  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');categoriaAtual=id;filtrarEmpresas();
+function aba(id, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-emp').style.display = id === 'emp' ? 'block' : 'none';
+  document.getElementById('tab-plano').style.display = id === 'plano' ? 'block' : 'none';
 }
 
-function setOrdem(o,el){
-  document.querySelectorAll('.order-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');ordemAtual=o;filtrarEmpresas();
+async function get(tabela, params) {
+  const r = await fetch(URL + '/rest/v1/' + tabela + '?' + params, { headers: h() });
+  return r.json();
 }
 
-function limparFiltros(){
-  document.getElementById('filtro-bairro').value='';
-  document.getElementById('filtro-preco').value='';
-  document.getElementById('search-input').value='';
-  filtrarEmpresas();
-}
+async function carregar() {
+  const cats = await get('categoria', 'order=id');
+  const emps = await get('empresas', 'order=id');
+  const planos = await get('planos', 'order=empresa_id');
 
-function menorPreco(id){const p=todosPlanos.filter(p=>p.empresa_id===id);return p.length?Math.min(...p.map(p=>p.preco)):9999}
+  empsCache = Array.isArray(emps) ? emps : [];
+  planosCache = Array.isArray(planos) ? planos : [];
 
-function filtrarEmpresas(){
-  const busca=document.getElementById('search-input').value.toLowerCase();
-  const bairro=document.getElementById('filtro-bairro').value;
-  const pf=document.getElementById('filtro-preco').value;
-  let lista=[...todasEmpresas];
-  if(categoriaAtual)lista=lista.filter(e=>e.categoria_id===categoriaAtual);
-  if(busca)lista=lista.filter(e=>e.nome.toLowerCase().includes(busca)||(e.bairro||'').toLowerCase().includes(busca));
-  if(bairro)lista=lista.filter(e=>e.bairro===bairro);
-  if(pf){const[min,max]=pf.split('-').map(Number);lista=lista.filter(e=>{const mp=menorPreco(e.id);return mp>=min&&mp<=max})}
-  if(ordemAtual==='nome')lista.sort((a,b)=>a.nome.localeCompare(b.nome));
-  else if(ordemAtual==='preco')lista.sort((a,b)=>menorPreco(a.id)-menorPreco(b.id));
-  else if(ordemAtual==='cliques')lista.sort((a,b)=>(b.cliques||0)-(a.cliques||0));
-  else lista.sort((a,b)=>(b.destaque?1:0)-(a.destaque?1:0));
-  renderEmpresas(lista);
-}
+  // Stats
+  document.getElementById('s1').textContent = empsCache.filter(e => e.ativo).length;
+  document.getElementById('s2').textContent = empsCache.filter(e => e.destaque).length;
+  document.getElementById('s3').textContent = planosCache.length;
+  document.getElementById('s4').textContent = empsCache.reduce((s, e) => s + (e.cliques || 0), 0);
 
-async function registrarClique(id){
-  const emp=todasEmpresas.find(e=>e.id===id);
-  if(emp)emp.cliques=(emp.cliques||0)+1;
-  await fetch(`${SUPABASE_URL}/rest/v1/empresas?id=eq.${id}`,{
-    method:'PATCH',
-    headers:{...H,'Content-Type':'application/json','Prefer':'return=minimal'},
-    body:JSON.stringify({cliques:(emp?.cliques||1)})
+  // Categoria select
+  const catSel = document.getElementById('e-cat');
+  catSel.innerHTML = '<option value="">Selecione...</option>';
+  if (Array.isArray(cats)) {
+    cats.forEach(c => {
+      const o = document.createElement('option');
+      o.value = c.id;
+      o.textContent = c.icone + ' ' + c.nome;
+      catSel.appendChild(o);
+    });
+  }
+
+  // Empresa select para planos
+  const empSel = document.getElementById('p-emp');
+  empSel.innerHTML = '<option value="">Selecione...</option>';
+  empsCache.forEach(e => {
+    const o = document.createElement('option');
+    o.value = e.id;
+    o.textContent = e.nome;
+    empSel.appendChild(o);
   });
+
+  renderEmps(empsCache);
+  renderPlanos(planosCache);
 }
 
-function labelData(d){
-  if(!d)return null;
-  const diff=Math.floor((Date.now()-new Date(d))/(86400000));
-  if(diff<=30)return{txt:`Preços atualizados há ${diff} dias`,old:false};
-  if(diff<=90)return{txt:`Atualizado há ${Math.floor(diff/30)} meses`,old:false};
-  return{txt:'⚠️ Preços podem estar desatualizados',old:true};
+function filtrarEmps() {
+  const q = document.getElementById('busca-emp').value.toLowerCase();
+  renderEmps(empsCache.filter(e => e.nome.toLowerCase().includes(q) || (e.bairro || '').toLowerCase().includes(q)));
 }
 
-function renderEmpresas(lista){
-  const container=document.getElementById('companies-container');
-  document.getElementById('results-count').innerHTML=`<strong>${lista.length}</strong> resultado${lista.length!==1?'s':''} encontrado${lista.length!==1?'s':''}`;
-  if(!lista.length){container.innerHTML=`<div class="empty-state"><div class="emoji">🔍</div><h3>Nenhum resultado encontrado</h3><p>Tente ajustar os filtros ou buscar por outro bairro.</p></div>`;return}
-  const menorGlobal={};
-  lista.forEach(e=>{const mp=menorPreco(e.id);if(!menorGlobal[e.categoria_id]||mp<menorGlobal[e.categoria_id])menorGlobal[e.categoria_id]=mp});
-  const grid=document.createElement('div');grid.className='companies-grid';
-  lista.forEach(empresa=>{
-    const planos=todosPlanos.filter(p=>p.empresa_id===empresa.id);
-    const mp=menorPreco(empresa.id);
-    const isMelhor=mp===menorGlobal[empresa.categoria_id]&&mp<9999;
-    const di=labelData(empresa.atualizado_em);
-    const card=document.createElement('div');
-    card.className='company-card'+(empresa.destaque?' destaque':'');
-    card.innerHTML=`
-      ${empresa.destaque?'<div class="destaque-badge">⭐ Destaque</div>':''}
-      <div><div class="company-name">${empresa.nome}</div><div class="company-bairro">📍 ${empresa.bairro||'Teresina, PI'}</div></div>
-      ${empresa.descricao?`<div class="company-desc">${empresa.descricao}</div>`:''}
-      ${planos.length?`<div class="plans">${planos.slice(0,3).map(p=>`
-        <div class="plan-item ${p.preco===mp&&isMelhor?'melhor':''}">
-          <span class="plan-name">${p.nome}${p.preco===mp&&isMelhor?'<span class="melhor-badge">Melhor preço</span>':''}</span>
-          <span class="plan-price">R$ ${Number(p.preco).toFixed(2).replace('.',',')}<small style="font-size:10px;font-weight:400;color:var(--muted)">/mês</small></span>
-        </div>`).join('')}</div>`:'<div style="font-size:13px;color:var(--muted)">Entre em contato para saber os preços</div>'}
-      ${di?`<div class="company-updated ${di.old?'old':''}">🕐 ${di.txt}</div>`:''}
-      <div class="company-actions">
-        ${empresa.whatsapp?`<a class="btn-wpp" href="https://wa.me/55${empresa.whatsapp.replace(/\D/g,'')}" target="_blank" rel="noopener" onclick="registrarClique(${empresa.id})">💬 WhatsApp</a>`:''}
-        ${empresa.telefone?`<a class="btn-tel" href="tel:${empresa.telefone}" onclick="registrarClique(${empresa.id})">📞 Ligar</a>`:''}
-        ${empresa.site?`<a class="btn-tel" href="${empresa.site}" target="_blank" rel="noopener" onclick="registrarClique(${empresa.id})">🌐 Site</a>`:''}
-        ${empresa.instagram?`<a class="btn-tel" href="${empresa.instagram}" target="_blank" rel="noopener" onclick="registrarClique(${empresa.id})">📸 Instagram</a>`:''}
-      </div>`;
-    grid.appendChild(card);
+function fmtData(d) { if (!d) return '—'; return new Date(d).toLocaleDateString('pt-BR'); }
+
+function renderEmps(list) {
+  const tb = document.getElementById('tbody-emp');
+  if (!list.length) { tb.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted)">Nenhuma empresa</td></tr>'; return; }
+  tb.innerHTML = list.map(e => `<tr>
+    <td style="color:var(--muted)">${e.id}</td>
+    <td><strong>${e.nome}</strong><br><span style="font-size:11px;color:var(--muted)">${e.bairro || ''}</span></td>
+    <td>${e.bairro || '—'}</td>
+    <td><span class="cliques">${e.cliques || 0}</span></td>
+    <td><span class="${e.ativo ? 'badge-on' : 'badge-off'}">${e.ativo ? 'Ativo' : 'Inativo'}</span></td>
+    <td>${e.destaque ? '<span class="badge-star">⭐ Sim</span>' : '—'}</td>
+    <td style="font-size:12px">${fmtData(e.atualizado_em)}</td>
+    <td style="display:flex;gap:6px"><button class="btn-edit" onclick="abrirModal(${e.id})">Editar</button><button class="btn-del" onclick="delEmp(${e.id})">Remover</button></td>
+  </tr>`).join('');
+}
+
+function renderPlanos(list) {
+  const tb = document.getElementById('tbody-plano');
+  if (!list.length) { tb.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:24px;color:var(--muted)">Nenhum plano</td></tr>'; return; }
+  tb.innerHTML = list.map(p => {
+    const emp = empsCache.find(e => e.id === p.empresa_id);
+    return `<tr>
+      <td>${emp ? emp.nome : '—'}</td>
+      <td>${p.nome}${p.destaque ? ' ⭐' : ''}</td>
+      <td><strong style="color:var(--green-dark)">R$ ${Number(p.preco).toFixed(2).replace('.', ',')}</strong></td>
+      <td style="color:var(--muted);font-size:12px">${p.descricao || '—'}</td>
+      <td><button class="btn-del" onclick="delPlano(${p.id})">Remover</button></td>
+    </tr>`;
+  }).join('');
+}
+
+async function salvarEmp() {
+  const nome = document.getElementById('e-nome').value.trim();
+  const cat = document.getElementById('e-cat').value;
+  if (!nome || !cat) { alert('Preencha nome e categoria.'); return; }
+  const body = {
+    nome,
+    categoria_id: parseInt(cat),
+    bairro: document.getElementById('e-bairro').value.trim() || null,
+    endereco: document.getElementById('e-end').value.trim() || null,
+    telefone: document.getElementById('e-tel').value.trim() || null,
+    whatsapp: document.getElementById('e-wpp').value.trim() || null,
+    site: document.getElementById('e-site').value.trim() || null,
+    instagram: document.getElementById('e-ig').value.trim() || null,
+    descricao: document.getElementById('e-desc').value.trim() || null,
+    atualizado_em: document.getElementById('e-data').value || new Date().toISOString().split('T')[0],
+    destaque: document.getElementById('e-dest').checked,
+    ativo: document.getElementById('e-ativo').checked,
+    cliques: 0
+  };
+  const r = await fetch(URL + '/rest/v1/empresas', { method: 'POST', headers: h(), body: JSON.stringify(body) });
+  if (r.ok) {
+    const ok = document.getElementById('ok-emp');
+    ok.style.display = 'block';
+    setTimeout(() => ok.style.display = 'none', 3000);
+    ['e-nome','e-bairro','e-end','e-tel','e-wpp','e-site','e-ig','e-desc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('e-dest').checked = false;
+    document.getElementById('e-ativo').checked = true;
+    await carregar();
+  } else {
+    const err = await r.json();
+    alert('Erro ao salvar: ' + JSON.stringify(err));
+  }
+}
+
+async function salvarPlano() {
+  const emp = document.getElementById('p-emp').value;
+  const nome = document.getElementById('p-nome').value.trim();
+  const preco = document.getElementById('p-preco').value;
+  if (!emp || !nome || !preco) { alert('Preencha empresa, nome e preço.'); return; }
+  const body = {
+    empresa_id: parseInt(emp),
+    nome,
+    preco: parseFloat(preco),
+    descricao: document.getElementById('p-desc').value.trim() || null,
+    destaque: document.getElementById('p-dest').checked
+  };
+  const r = await fetch(URL + '/rest/v1/planos', { method: 'POST', headers: h(), body: JSON.stringify(body) });
+  if (r.ok) {
+    const ok = document.getElementById('ok-plano');
+    ok.style.display = 'block';
+    setTimeout(() => ok.style.display = 'none', 3000);
+    ['p-nome','p-preco','p-desc'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('p-dest').checked = false;
+    await carregar();
+  } else {
+    const err = await r.json();
+    alert('Erro ao salvar: ' + JSON.stringify(err));
+  }
+}
+
+async function delEmp(id) {
+  if (!confirm('Remover empresa e todos os seus planos?')) return;
+  await fetch(URL + '/rest/v1/planos?empresa_id=eq.' + id, { method: 'DELETE', headers: h() });
+  await fetch(URL + '/rest/v1/empresas?id=eq.' + id, { method: 'DELETE', headers: h() });
+  await carregar();
+}
+
+async function delPlano(id) {
+  if (!confirm('Remover este plano?')) return;
+  await fetch(URL + '/rest/v1/planos?id=eq.' + id, { method: 'DELETE', headers: h() });
+  await carregar();
+}
+
+async function abrirModal(id) {
+  const emp = empsCache.find(e => e.id === id);
+  if (!emp) return;
+
+  // Populate edit category select with same options as main form
+  const mainCat = document.getElementById('e-cat');
+  const editCat = document.getElementById('edit-cat');
+  editCat.innerHTML = mainCat.innerHTML;
+
+  document.getElementById('edit-id').value = emp.id;
+  document.getElementById('edit-nome').value = emp.nome || '';
+  document.getElementById('edit-cat').value = emp.categoria_id || '';
+  document.getElementById('edit-bairro').value = emp.bairro || '';
+  document.getElementById('edit-end').value = emp.endereco || '';
+  document.getElementById('edit-tel').value = emp.telefone || '';
+  document.getElementById('edit-wpp').value = emp.whatsapp || '';
+  document.getElementById('edit-site').value = emp.site || '';
+  document.getElementById('edit-ig').value = emp.instagram || '';
+  document.getElementById('edit-desc').value = emp.descricao || '';
+  document.getElementById('edit-data').value = emp.atualizado_em || '';
+  document.getElementById('edit-dest').checked = emp.destaque || false;
+  document.getElementById('edit-ativo').checked = emp.ativo !== false;
+  document.getElementById('ok-edit').style.display = 'none';
+
+  const modal = document.getElementById('modal');
+  modal.style.display = 'flex';
+}
+
+function fecharModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+async function salvarEdicao() {
+  const id = document.getElementById('edit-id').value;
+  const nome = document.getElementById('edit-nome').value.trim();
+  const cat = document.getElementById('edit-cat').value;
+  if (!nome || !cat) { alert('Preencha nome e categoria.'); return; }
+
+  const body = {
+    nome,
+    categoria_id: parseInt(cat),
+    bairro: document.getElementById('edit-bairro').value.trim() || null,
+    endereco: document.getElementById('edit-end').value.trim() || null,
+    telefone: document.getElementById('edit-tel').value.trim() || null,
+    whatsapp: document.getElementById('edit-wpp').value.trim() || null,
+    site: document.getElementById('edit-site').value.trim() || null,
+    instagram: document.getElementById('edit-ig').value.trim() || null,
+    descricao: document.getElementById('edit-desc').value.trim() || null,
+    atualizado_em: document.getElementById('edit-data').value || null,
+    destaque: document.getElementById('edit-dest').checked,
+    ativo: document.getElementById('edit-ativo').checked
+  };
+
+  const r = await fetch(URL + '/rest/v1/empresas?id=eq.' + id, {
+    method: 'PATCH',
+    headers: h(),
+    body: JSON.stringify(body)
   });
-  container.innerHTML='';container.appendChild(grid);
+
+  if (r.ok) {
+    document.getElementById('ok-edit').style.display = 'block';
+    setTimeout(() => { fecharModal(); }, 1500);
+    await carregar();
+  } else {
+    const err = await r.json();
+    alert('Erro ao salvar: ' + JSON.stringify(err));
+  }
 }
-init();
+
+// Close modal on backdrop click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) fecharModal();
+});
 </script>
+
+<!-- Modal de edição -->
+<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;align-items:center;justify-content:center">
+  <div style="background:white;border-radius:16px;padding:32px;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;margin:16px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <h3 style="font-family:Bricolage Grotesque,sans-serif;font-size:18px;font-weight:700">Editar empresa</h3>
+      <button onclick="fecharModal()" style="background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <input type="hidden" id="edit-id">
+    <div class="grid2">
+      <div><label>Nome *</label><input type="text" id="edit-nome"></div>
+      <div><label>Categoria *</label><select id="edit-cat"></select></div>
+      <div><label>Bairro</label><input type="text" id="edit-bairro"></div>
+      <div><label>Endereço</label><input type="text" id="edit-end"></div>
+      <div><label>Telefone</label><input type="text" id="edit-tel"></div>
+      <div><label>WhatsApp</label><input type="text" id="edit-wpp"></div>
+      <div><label>Site</label><input type="text" id="edit-site"></div>
+      <div><label>Instagram</label><input type="text" id="edit-ig"></div>
+      <div><label>Atualização de preços</label><input type="date" id="edit-data"></div>
+    </div>
+    <label>Descrição</label>
+    <textarea id="edit-desc"></textarea>
+    <div style="display:flex;gap:24px;margin-bottom:20px">
+      <label class="check"><input type="checkbox" id="edit-dest"> ⭐ Destaque</label>
+      <label class="check"><input type="checkbox" id="edit-ativo"> ✅ Ativo</label>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="btn-green" onclick="salvarEdicao()" style="flex:1">Salvar alterações</button>
+      <button onclick="fecharModal()" style="background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-family:DM Sans,sans-serif;font-weight:600;font-size:14px;cursor:pointer">Cancelar</button>
+    </div>
+    <div class="ok" id="ok-edit">✓ Empresa atualizada!</div>
+  </div>
+</div>
 </body>
 </html>
