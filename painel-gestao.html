@@ -122,7 +122,7 @@ tr:hover td{background:var(--bg)}
   <div class="body">
     <div class="tabs">
       <button class="tab active" onclick="aba('emp',this)">🏢 Empresas</button>
-      <button class="tab" onclick="aba('pend',this)" id="tab-pend">⏳ Pendentes</button>
+      <button class="tab" onclick="aba('pend',this)" id="btn-pend">⏳ Pendentes</button>
       <button class="tab" onclick="aba('plano',this)">💰 Planos</button>
     </div>
 
@@ -274,7 +274,7 @@ async function carregar(){
   document.getElementById('s4').textContent=empsCache.reduce((s,e)=>s+(e.cliques||0),0);
 
   if(pendCache.length>0){
-    document.getElementById('tab-pend').innerHTML='⏳ Pendentes<span class="badge-count">'+pendCache.length+'</span>';
+    document.getElementById('btn-pend').innerHTML='⏳ Pendentes<span class="badge-count">'+pendCache.length+'</span>';
   }
 
   const empSel=document.getElementById('p-emp');
