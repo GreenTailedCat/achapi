@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AchaPI — Cadastre sua empresa</title>
+<meta name="description" content="Cadastre sua empresa gratuitamente no AchaPI e seja encontrado por milhares de pessoas em Teresina.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#00C896;--green-dark:#00A87E;--green-light:#E6FBF5;--ink:#0D1117;--ink2:#24292F;--muted:#656D76;--border:#D0D7DE;--bg:#F6F8FA;--white:#fff;--red:#CF222E;--radius:14px;--shadow:0 1px 3px rgba(13,17,23,.08),0 4px 20px rgba(13,17,23,.06)}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.header-inner{max-width:860px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{background:var(--ink);color:white;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:14px}
+.logo-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;color:var(--ink);letter-spacing:-.03em}
+.logo-name span{color:var(--green)}
+.back-link{font-size:13px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .15s}
+.back-link:hover{color:var(--green)}
+
+/* Hero */
+.hero{background:var(--ink);padding:48px 24px;text-align:center}
+.hero-inner{max-width:860px;margin:0 auto}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,.15);color:var(--green);font-size:12px;font-weight:600;padding:5px 14px;border-radius:99px;margin-bottom:16px;border:1px solid rgba(0,200,150,.25)}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,5vw,44px);font-weight:800;color:white;line-height:1.15;letter-spacing:-.03em;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto;line-height:1.7;font-weight:300}
+
+/* Benefits */
+.benefits{max-width:860px;margin:40px auto 0;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.benefit{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;align-items:flex-start;gap:12px}
+.benefit-icon{font-size:22px;flex-shrink:0}
+.benefit-text{font-size:13px;color:var(--ink2);line-height:1.5;font-weight:500}
+
+/* Steps indicator */
+.steps{max-width:860px;margin:32px auto 0;padding:0 24px}
+.steps-bar{display:flex;align-items:center;gap:0;margin-bottom:32px}
+.step{display:flex;align-items:center;gap:8px;flex:1}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;transition:all .3s}
+.step-num.done{background:var(--green);color:white}
+.step-num.active{background:var(--ink);color:white}
+.step-num.pending{background:var(--bg);border:2px solid var(--border);color:var(--muted)}
+.step-label{font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap}
+.step-label.active{color:var(--ink)}
+.step-line{flex:1;height:2px;background:var(--border);margin:0 8px;transition:background .3s}
+.step-line.done{background:var(--green)}
+
+/* Form */
+.form-section{max-width:860px;margin:0 auto;padding:0 24px 64px}
+.form-panel{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);display:none}
+.form-panel.active{display:block}
+.form-panel h2{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px}
+.form-panel .subtitle{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:var(--ink2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.form-group label .opt{font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0}
+input,select,textarea{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--ink);transition:border-color .15s;background:white}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(0,200,150,.1)}
+input.error,select.error{border-color:var(--red)}
+textarea{resize:vertical;min-height:90px}
+.hint{font-size:12px;color:var(--muted);margin-top:4px}
+.required-note{font-size:12px;color:var(--muted);margin-bottom:20px}
+
+/* Unit / Plan cards */
+.dynamic-list{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+.dynamic-card{background:var(--bg);border:1.5px solid var(--border);border-radius:12px;padding:20px;position:relative}
+.dynamic-card .card-title{font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
+.btn-remove-card{position:absolute;top:12px;right:12px;background:none;border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--red);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-remove-card:hover{background:var(--red);color:white;border-color:var(--red)}
+.btn-add{display:flex;align-items:center;gap:8px;background:none;border:1.5px dashed var(--border);border-radius:10px;padding:12px 20px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;width:100%}
+.btn-add:hover{border-color:var(--green);color:var(--green);background:var(--green-light)}
+
+/* Nav buttons */
+.form-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+.btn-back{background:none;border:1.5px solid var(--border);border-radius:10px;padding:11px 24px;font-size:14px;font-weight:600;color:var(--ink2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-back:hover{border-color:var(--ink);color:var(--ink)}
+.btn-next{background:var(--ink);color:white;border:none;border-radius:10px;padding:12px 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;display:flex;align-items:center;gap:8px}
+.btn-next:hover{background:var(--green);color:var(--ink)}
+.btn-next:disabled{opacity:.5;cursor:not-allowed}
+.btn-submit{background:var(--green);color:var(--ink);border:none;border-radius:10px;padding:14px 40px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.btn-submit:hover{background:var(--green-dark);color:white}
+
+/* Review */
+.review-section{margin-bottom:24px}
+.review-section h3{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.review-item{display:flex;gap:12px;margin-bottom:8px;font-size:14px}
+.review-label{color:var(--muted);min-width:120px;font-weight:500}
+.review-value{color:var(--ink2)}
+.review-card{background:var(--bg);border-radius:8px;padding:12px 16px;margin-bottom:8px;font-size:13px}
+.review-card strong{color:var(--ink);display:block;margin-bottom:4px}
+.review-card span{color:var(--muted)}
+
+/* Success */
+#success-screen{display:none;text-align:center;padding:64px 24px;max-width:560px;margin:0 auto}
+#success-screen .emoji{font-size:56px;margin-bottom:20px}
+#success-screen h2{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:var(--ink);margin-bottom:12px}
+#success-screen p{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.btn-home{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:white;text-decoration:none;border-radius:10px;padding:12px 28px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;transition:background .15s}
+.btn-home:hover{background:var(--green);color:var(--ink)}
+
+/* Error msg */
+.field-error{font-size:12px;color:var(--red);margin-top:4px;display:none}
+
+footer{background:var(--ink);margin-top:auto}
+.footer-inner{max-width:860px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:white}
+.footer-logo span{color:var(--green)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.4)}
+
+@media(max-width:640px){.grid2{grid-template-columns:1fr}.benefits{grid-template-columns:1fr 1fr}.steps-bar .step-label{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <div class="logo-mark">AP</div>
+      <span class="logo-name">Acha<span>PI</span></span>
+    </a>
+    <a class="back-link" href="index.html">← Voltar ao site</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">🆓 100% gratuito</div>
+    <h1>Cadastre sua empresa<br><em>e atraia mais clientes</em></h1>
+    <p>Apareça para quem está comparando serviços em Teresina agora mesmo. Sem mensalidade para o cadastro básico.</p>
+  </div>
+</div>
+
+<div class="benefits">
+  <div class="benefit"><div class="benefit-icon">✅</div><div class="benefit-text">Perfil completo com preços e contato</div></div>
+  <div class="benefit"><div class="benefit-icon">📍</div><div class="benefit-text">Encontrado por bairro e categoria</div></div>
+  <div class="benefit"><div class="benefit-icon">💬</div><div class="benefit-text">Clientes chegam direto no seu WhatsApp</div></div>
+  <div class="benefit"><div class="benefit-icon">⭐</div><div class="benefit-text">Destaque por apenas R$9,90/mês</div></div>
+</div>
+
+<div class="steps">
+  <div class="steps-bar">
+    <div class="step">
+      <div class="step-num active" id="sn1">1</div>
+      <span class="step-label active" id="sl1">Empresa</span>
+    </div>
+    <div class="step-line" id="line1"></div>
+    <div class="step">
+      <div class="step-num pending" id="sn2">2</div>
+      <span class="step-label" id="sl2">Unidades</span>
+    </div>
+    <div class="step-line" id="line2"></div>
+    <div class="step">
+      <div class="step-num pending" id="sn3">3</div>
+      <span class="step-label" id="sl3">Planos</span>
+    </div>
+    <div class="step-line" id="line3"></div>
+    <div class="step">
+      <div class="step-num pending" id="sn4">4</div>
+      <span class="step-label" id="sl4">Revisar</span>
+    </div>
+  </div>
+</div>
+
+<div class="form-section">
+
+  <!-- STEP 1: Empresa -->
+  <div class="form-panel active" id="step1">
+    <h2>Dados da empresa</h2>
+    <p class="subtitle">Informações gerais sobre seu negócio. Campos com * são obrigatórios.</p>
+    <p class="required-note">* Campo obrigatório</p>
+
+    <div class="grid2">
+      <div class="form-group" style="grid-column:span 2">
+        <label>Nome da empresa *</label>
+        <input type="text" id="f-nome" placeholder="Ex: Academia FitLife, CFC Pioneira">
+        <div class="field-error" id="err-nome">Informe o nome da empresa</div>
+      </div>
+      <div class="form-group">
+        <label>Categoria *</label>
+        <select id="f-cat">
+          <option value="">Selecione...</option>
+          <option value="1">🚗 Autoescolas</option>
+          <option value="2">💪 Academias</option>
+          <option value="3">🌎 Escolas de Idiomas</option>
+        </select>
+        <div class="field-error" id="err-cat">Selecione a categoria</div>
+      </div>
+      <div class="form-group">
+        <label>Site <span class="opt">(opcional)</span></label>
+        <input type="url" id="f-site" placeholder="https://seusite.com.br">
+      </div>
+      <div class="form-group">
+        <label>Instagram <span class="opt">(opcional)</span></label>
+        <input type="url" id="f-ig" placeholder="https://instagram.com/suaempresa">
+      </div>
+      <div class="form-group">
+        <label>Email para contato <span class="opt">(opcional)</span></label>
+        <input type="email" id="f-email" placeholder="contato@suaempresa.com.br">
+        <div class="hint">Para atualizações sobre seu cadastro</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Descrição *</label>
+      <textarea id="f-desc" placeholder="Descreva os diferenciais da sua empresa, modalidades, experiência..."></textarea>
+      <div class="field-error" id="err-desc">Informe uma descrição</div>
+    </div>
+
+    <div class="form-nav">
+      <span></span>
+      <button class="btn-next" onclick="irPara(2)">Próximo: Unidades →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Unidades -->
+  <div class="form-panel" id="step2">
+    <h2>Unidades e endereços</h2>
+    <p class="subtitle">Adicione cada unidade da sua empresa. Se tiver só uma, preencha só ela. Pelo menos uma unidade é obrigatória.</p>
+
+    <div class="dynamic-list" id="unidades-list"></div>
+    <button class="btn-add" onclick="addUnidade()">+ Adicionar unidade</button>
+
+    <div class="form-nav">
+      <button class="btn-back" onclick="irPara(1)">← Voltar</button>
+      <button class="btn-next" onclick="irPara(3)">Próximo: Planos →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Planos -->
+  <div class="form-panel" id="step3">
+    <h2>Planos e preços</h2>
+    <p class="subtitle">Adicione os planos que sua empresa oferece com os respectivos preços mensais. Pelo menos um plano é obrigatório.</p>
+
+    <div class="dynamic-list" id="planos-list"></div>
+    <button class="btn-add" onclick="addPlano()">+ Adicionar plano</button>
+
+    <div class="form-nav">
+      <button class="btn-back" onclick="irPara(2)">← Voltar</button>
+      <button class="btn-next" onclick="irPara(4)">Revisar cadastro →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Revisão -->
+  <div class="form-panel" id="step4">
+    <h2>Revise seu cadastro</h2>
+    <p class="subtitle">Confira os dados antes de enviar. Após o envio, nossa equipe analisará e publicará em até 48 horas.</p>
+
+    <div id="review-content"></div>
+
+    <div style="background:var(--green-light);border:1px solid rgba(0,200,150,.3);border-radius:10px;padding:16px 20px;font-size:13px;color:var(--ink2);margin-bottom:20px">
+      ✅ Ao enviar você confirma que as informações são verdadeiras e concorda com os termos de uso do AchaPI.
+    </div>
+
+    <div class="form-nav">
+      <button class="btn-back" onclick="irPara(3)">← Voltar</button>
+      <button class="btn-submit" onclick="enviarCadastro()" id="btn-submit">Enviar cadastro</button>
+    </div>
+  </div>
+
+  <!-- Sucesso -->
+  <div id="success-screen">
+    <div class="emoji">🎉</div>
+    <h2>Cadastro enviado!</h2>
+    <p>Recebemos os dados da sua empresa. Nossa equipe vai revisar e publicar seu perfil em até <strong>48 horas</strong>. Assim que for aprovado você já aparece para quem busca serviços em Teresina.</p>
+    <a class="btn-home" href="index.html">← Voltar ao AchaPI</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Acha<span>PI</span></div>
+    <span class="footer-copy">© 2026 · Comparador de serviços em Teresina</span>
+  </div>
+</footer>
+
+<script>
+const URL = 'https://txyewyqknhkidglvqrew.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4eWV3eXFrbmhraWRnbHZxcmV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MzYxNjcsImV4cCI6MjA5MzMxMjE2N30.C8FymyLFRwiqJf99hFO3W8GuhP8IBO1MEkb9Wdwc1KM';
+const H = {'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=representation'};
+
+let unidadeCount = 0;
+let planoCount = 0;
+
+// ── Steps ──
+function irPara(step) {
+  if (step > 1 && !validarStep(step - 1)) return;
+  if (step === 4) buildReview();
+
+  document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step' + step).classList.add('active');
+
+  for (let i = 1; i <= 4; i++) {
+    const sn = document.getElementById('sn' + i);
+    const sl = document.getElementById('sl' + i);
+    if (i < step) { sn.className = 'step-num done'; sn.textContent = '✓'; }
+    else if (i === step) { sn.className = 'step-num active'; sn.textContent = i; sl.className = 'step-label active'; }
+    else { sn.className = 'step-num pending'; sn.textContent = i; sl.className = 'step-label'; }
+    if (i < 4) document.getElementById('line' + i).className = 'step-line' + (i < step ? ' done' : '');
+  }
+
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function validarStep(step) {
+  if (step === 1) {
+    let ok = true;
+    const nome = document.getElementById('f-nome').value.trim();
+    const cat = document.getElementById('f-cat').value;
+    const desc = document.getElementById('f-desc').value.trim();
+    if (!nome) { showErr('err-nome', 'f-nome'); ok = false; }
+    if (!cat) { showErr('err-cat', 'f-cat'); ok = false; }
+    if (!desc) { showErr('err-desc', 'f-desc'); ok = false; }
+    return ok;
+  }
+  if (step === 2) {
+    const cards = document.querySelectorAll('#unidades-list .dynamic-card');
+    if (!cards.length) { alert('Adicione pelo menos uma unidade.'); return false; }
+    return true;
+  }
+  if (step === 3) {
+    const cards = document.querySelectorAll('#planos-list .dynamic-card');
+    if (!cards.length) { alert('Adicione pelo menos um plano com preço.'); return false; }
+    return true;
+  }
+  return true;
+}
+
+function showErr(errId, inputId) {
+  document.getElementById(errId).style.display = 'block';
+  document.getElementById(inputId).classList.add('error');
+  document.getElementById(inputId).addEventListener('input', () => {
+    document.getElementById(errId).style.display = 'none';
+    document.getElementById(inputId).classList.remove('error');
+  }, {once: true});
+}
+
+// ── Unidades ──
+function addUnidade() {
+  unidadeCount++;
+  const n = unidadeCount;
+  const list = document.getElementById('unidades-list');
+  const div = document.createElement('div');
+  div.className = 'dynamic-card';
+  div.id = 'unidade-' + n;
+  div.innerHTML = `
+    <div class="card-title">Unidade ${n}</div>
+    ${n > 1 ? `<button class="btn-remove-card" onclick="removeCard('unidade-${n}')">Remover</button>` : ''}
+    <div class="grid2">
+      <div class="form-group">
+        <label>Bairro *</label>
+        <input type="text" id="u-bairro-${n}" placeholder="Ex: Fátima, Jóquei">
+      </div>
+      <div class="form-group">
+        <label>Endereço *</label>
+        <input type="text" id="u-end-${n}" placeholder="Rua, número">
+      </div>
+      <div class="form-group">
+        <label>Telefone <span class="opt">(opcional)</span></label>
+        <input type="text" id="u-tel-${n}" placeholder="(86) 3333-3333">
+      </div>
+      <div class="form-group">
+        <label>WhatsApp <span class="opt">(opcional)</span></label>
+        <input type="text" id="u-wpp-${n}" placeholder="86999999999">
+      </div>
+    </div>
+  `;
+  list.appendChild(div);
+}
+
+// ── Planos ──
+function addPlano() {
+  planoCount++;
+  const n = planoCount;
+  const list = document.getElementById('planos-list');
+  const div = document.createElement('div');
+  div.className = 'dynamic-card';
+  div.id = 'plano-' + n;
+  div.innerHTML = `
+    <div class="card-title">Plano ${n}</div>
+    ${n > 1 ? `<button class="btn-remove-card" onclick="removeCard('plano-${n}')">Remover</button>` : ''}
+    <div class="grid2">
+      <div class="form-group">
+        <label>Nome do plano *</label>
+        <input type="text" id="p-nome-${n}" placeholder="Ex: Mensalidade básica, Categoria B">
+      </div>
+      <div class="form-group">
+        <label>Preço mensal (R$) *</label>
+        <input type="number" id="p-preco-${n}" placeholder="150.00" step="0.01" min="0">
+      </div>
+      <div class="form-group" style="grid-column:span 2">
+        <label>Descrição <span class="opt">(opcional)</span></label>
+        <input type="text" id="p-desc-${n}" placeholder="O que está incluso neste plano...">
+      </div>
+    </div>
+  `;
+  list.appendChild(div);
+}
+
+function removeCard(id) {
+  document.getElementById(id)?.remove();
+}
+
+// Init with one of each
+addUnidade();
+addPlano();
+
+// ── Review ──
+function getUnidades() {
+  const cards = document.querySelectorAll('#unidades-list .dynamic-card');
+  return Array.from(cards).map(c => {
+    const n = c.id.replace('unidade-', '');
+    return {
+      bairro: document.getElementById('u-bairro-' + n)?.value.trim() || '',
+      endereco: document.getElementById('u-end-' + n)?.value.trim() || '',
+      telefone: document.getElementById('u-tel-' + n)?.value.trim() || null,
+      whatsapp: document.getElementById('u-wpp-' + n)?.value.trim() || null,
+    };
+  }).filter(u => u.bairro && u.endereco);
+}
+
+function getPlanos() {
+  const cards = document.querySelectorAll('#planos-list .dynamic-card');
+  return Array.from(cards).map(c => {
+    const n = c.id.replace('plano-', '');
+    return {
+      nome: document.getElementById('p-nome-' + n)?.value.trim() || '',
+      preco: parseFloat(document.getElementById('p-preco-' + n)?.value) || 0,
+      descricao: document.getElementById('p-desc-' + n)?.value.trim() || null,
+    };
+  }).filter(p => p.nome && p.preco > 0);
+}
+
+function buildReview() {
+  const unidades = getUnidades();
+  const planos = getPlanos();
+  const catNames = {'1':'🚗 Autoescolas','2':'💪 Academias','3':'🌎 Escolas de Idiomas'};
+
+  document.getElementById('review-content').innerHTML = `
+    <div class="review-section">
+      <h3>Dados da empresa</h3>
+      <div class="review-item"><span class="review-label">Nome</span><span class="review-value">${document.getElementById('f-nome').value}</span></div>
+      <div class="review-item"><span class="review-label">Categoria</span><span class="review-value">${catNames[document.getElementById('f-cat').value] || '—'}</span></div>
+      <div class="review-item"><span class="review-label">Site</span><span class="review-value">${document.getElementById('f-site').value || '—'}</span></div>
+      <div class="review-item"><span class="review-label">Instagram</span><span class="review-value">${document.getElementById('f-ig').value || '—'}</span></div>
+      <div class="review-item"><span class="review-label">Descrição</span><span class="review-value">${document.getElementById('f-desc').value}</span></div>
+    </div>
+    <div class="review-section">
+      <h3>${unidades.length} unidade${unidades.length !== 1 ? 's' : ''}</h3>
+      ${unidades.map((u, i) => `<div class="review-card"><strong>Unidade ${i+1} — ${u.bairro}</strong><span>${u.endereco}${u.telefone ? ' · Tel: ' + u.telefone : ''}${u.whatsapp ? ' · WhatsApp: ' + u.whatsapp : ''}</span></div>`).join('')}
+    </div>
+    <div class="review-section">
+      <h3>${planos.length} plano${planos.length !== 1 ? 's' : ''}</h3>
+      ${planos.map((p, i) => `<div class="review-card"><strong>${p.nome} — R$ ${p.preco.toFixed(2).replace('.', ',')}/mês</strong>${p.descricao ? `<span>${p.descricao}</span>` : ''}</div>`).join('')}
+    </div>
+  `;
+}
+
+// ── Submit ──
+async function enviarCadastro() {
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  const unidades = getUnidades();
+  const planos = getPlanos();
+  const bairros = [...new Set(unidades.map(u => u.bairro))].join(', ');
+  const unidadePrincipal = unidades[0];
+
+  try {
+    // 1. Insert empresa
+    const empBody = {
+      nome: document.getElementById('f-nome').value.trim(),
+      categoria_id: parseInt(document.getElementById('f-cat').value),
+      bairro: bairros,
+      endereco: unidadePrincipal?.endereco || null,
+      telefone: unidadePrincipal?.telefone || null,
+      whatsapp: unidadePrincipal?.whatsapp || null,
+      site: document.getElementById('f-site').value.trim() || null,
+      instagram: document.getElementById('f-ig').value.trim() || null,
+      descricao: document.getElementById('f-desc').value.trim(),
+      ativo: false,
+      destaque: false,
+      cliques: 0,
+      atualizado_em: new Date().toISOString().split('T')[0]
+    };
+
+    const empRes = await fetch(URL + '/rest/v1/empresas', {method:'POST', headers:H, body:JSON.stringify(empBody)});
+    if (!empRes.ok) throw new Error('Erro ao salvar empresa');
+    const empData = await empRes.json();
+    const empresaId = empData[0].id;
+
+    // 2. Insert unidades
+    for (const u of unidades) {
+      await fetch(URL + '/rest/v1/unidades', {
+        method: 'POST', headers: H,
+        body: JSON.stringify({...u, empresa_id: empresaId})
+      });
+    }
+
+    // 3. Insert planos
+    for (const p of planos) {
+      await fetch(URL + '/rest/v1/planos', {
+        method: 'POST', headers: H,
+        body: JSON.stringify({...p, empresa_id: empresaId, destaque: false})
+      });
+    }
+
+    // Show success
+    document.querySelectorAll('.form-panel').forEach(p => p.style.display = 'none');
+    document.querySelector('.steps').style.display = 'none';
+    document.getElementById('success-screen').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
+  } catch(e) {
+    alert('Erro ao enviar cadastro. Tente novamente.');
+    btn.disabled = false;
+    btn.textContent = 'Enviar cadastro';
+  }
+}
+</script>
+</body>
+</html>

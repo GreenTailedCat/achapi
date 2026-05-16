@@ -7,7 +7,6 @@
 <meta name="description" content="Compare preços de academias, autoescolas e escolas de idiomas em Teresina, PI. Encontre o melhor serviço pelo menor preço com o AchaPI.">
 <meta name="keywords" content="academia Teresina, autoescola Teresina, curso inglês Teresina, comparar preços Teresina">
 <meta name="robots" content="index, follow">
-<meta name="author" content="AchaPI">
 <meta property="og:title" content="AchaPI — Compare serviços em Teresina">
 <meta property="og:description" content="Compare preços de academias, autoescolas e escolas de idiomas em Teresina. Grátis e sem cadastro.">
 <meta property="og:type" content="website">
@@ -27,8 +26,8 @@ header{background:var(--white);border-bottom:1px solid var(--border);position:st
 .logo-name span{color:var(--green)}
 .header-right{display:flex;align-items:center;gap:12px}
 .badge{font-size:12px;font-weight:500;color:var(--muted);background:var(--bg);border:1px solid var(--border);padding:5px 12px;border-radius:99px}
-.ig-link{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .15s}
-.ig-link:hover{color:white}
+.tiktok-link{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .15s}
+.tiktok-link:hover{color:var(--ink)}
 .hero{background:var(--ink);padding:64px 24px 80px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,200,150,.15) 0%,transparent 70%);pointer-events:none}
 .hero-inner{max-width:1100px;margin:0 auto;position:relative}
@@ -41,19 +40,12 @@ header{background:var(--white);border-bottom:1px solid var(--border);position:st
 .stat-num{font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;color:var(--green);line-height:1}
 .stat-lbl{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
 .hero-cats{display:flex;gap:12px;flex-wrap:wrap}
-.hero-cat-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:16px 24px;cursor:pointer;transition:all .2s;color:white;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;text-align:left}
+.hero-cat-btn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:16px 24px;cursor:pointer;transition:all .2s;color:white;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px}
 .hero-cat-btn:hover{background:rgba(0,200,150,.2);border-color:var(--green);transform:translateY(-2px)}
 .hero-cat-btn.active{background:var(--green);border-color:var(--green);color:var(--ink)}
 .hero-cat-emoji{font-size:28px}
-.hero-cat-info{}
 .hero-cat-name{font-weight:700;font-size:15px}
 .hero-cat-count{font-size:12px;opacity:.6;margin-top:2px}
-.search-box{display:flex;gap:10px;max-width:560px}
-.search-box input{flex:1;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:12px;padding:13px 18px;font-size:15px;font-family:'DM Sans',sans-serif;color:white;transition:border-color .2s}
-.search-box input::placeholder{color:rgba(255,255,255,.35)}
-.search-box input:focus{outline:none;border-color:var(--green)}
-.btn-search{background:var(--green);color:var(--ink);border:none;border-radius:12px;padding:13px 24px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:background .15s;white-space:nowrap}
-.btn-search:hover{background:var(--green-dark)}
 .categories{max-width:1100px;margin:48px auto 0;padding:0 24px}
 .section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:20px;letter-spacing:-.02em}
 .cat-grid{display:flex;flex-direction:row;gap:12px;margin-bottom:32px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
@@ -100,6 +92,25 @@ header{background:var(--white);border-bottom:1px solid var(--border);position:st
 .btn-wpp:hover{background:#1ebe5d}
 .btn-tel{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg);color:var(--ink2);border:1.5px solid var(--border);border-radius:8px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer;text-decoration:none;transition:all .15s}
 .btn-tel:hover{border-color:var(--green);color:var(--green)}
+
+/* Units expandable */
+.units-toggle{display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-radius:8px;padding:10px 14px;cursor:pointer;transition:background .15s;border:none;width:100%;font-family:'DM Sans',sans-serif}
+.units-toggle:hover{background:var(--green-light)}
+.units-toggle-label{font-size:13px;font-weight:600;color:var(--ink2);display:flex;align-items:center;gap:8px}
+.units-toggle-arrow{font-size:12px;color:var(--muted);transition:transform .2s}
+.units-toggle-arrow.open{transform:rotate(180deg)}
+.units-list{display:none;flex-direction:column;gap:6px;margin-top:8px}
+.units-list.open{display:flex}
+.unit-item{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.unit-bairro{font-size:12px;font-weight:700;color:var(--green-dark);margin-bottom:2px}
+.unit-end{font-size:12px;color:var(--muted)}
+.unit-contacts{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.unit-contact-btn{font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;text-decoration:none;transition:all .15s}
+.unit-wpp{background:#25D36620;color:#1a9648}
+.unit-wpp:hover{background:#25D366;color:white}
+.unit-tel{background:var(--bg);color:var(--muted);border:1px solid var(--border)}
+.unit-tel:hover{border-color:var(--green);color:var(--green)}
+
 .destaque-cta{background:var(--ink);border-radius:16px;padding:32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .destaque-cta-text h3{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:white;margin-bottom:6px}
 .destaque-cta-text p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.6}
@@ -123,12 +134,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
 .footer-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:white}
 .footer-logo span{color:var(--green)}
 .footer-copy{font-size:12px;margin-top:4px}
-.footer-ig{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;transition:color .15s}
-.footer-ig:hover{color:white}
 .footer-links{display:flex;gap:16px}
 .footer-links a{font-size:12px;color:rgba(255,255,255,.4);text-decoration:none}
 .footer-links a:hover{color:var(--green)}
-@media(max-width:640px){.hero{padding:40px 16px 56px}.search-box{flex-direction:column}.companies-grid{grid-template-columns:1fr}.badge{display:none}.destaque-cta{flex-direction:column;text-align:center}}
+@media(max-width:640px){.hero{padding:40px 16px 56px}.companies-grid{grid-template-columns:1fr}.badge{display:none}.destaque-cta{flex-direction:column;text-align:center}.hero-cats{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -142,7 +151,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
       <span class="logo-name">Acha<span>PI</span></span>
     </a>
     <div class="header-right">
-      <a class="ig-link" href="https://www.tiktok.com/@acha.brasil" target="_blank" rel="noopener">
+      <a class="tiktok-link" href="https://www.tiktok.com/@acha.brasil" target="_blank" rel="noopener">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
         @acha.brasil
       </a>
@@ -153,14 +162,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
 
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">📍 Teresina, Piauí</div>
+    <div class="hero-tag">✦ Compare antes de assinar</div>
     <h1>O que você<br><em>procura?</em></h1>
     <p>Compare preços de serviços em Teresina antes de assinar. Grátis, sem cadastro.</p>
-    <div id="hero-cats" class="hero-cats"></div>
-    <div class="stats-bar" style="margin-top:32px">
+    <div class="stats-bar">
       <div class="stat-item"><span class="stat-num" id="stat-empresas">—</span><span class="stat-lbl">empresas listadas</span></div>
+      <div class="stat-item"><span class="stat-num">3</span><span class="stat-lbl">categorias</span></div>
       <div class="stat-item"><span class="stat-num">100%</span><span class="stat-lbl">gratuito</span></div>
     </div>
+    <div id="hero-cats" class="hero-cats"></div>
   </div>
 </div>
 
@@ -176,15 +186,15 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
 
 <div class="listings" id="listings-section" style="display:none">
   <div style="display:flex;gap:10px;margin-bottom:20px">
-    <input class="admin-search" style="flex:1;border:1.5px solid var(--border);border-radius:8px;padding:9px 14px;font-size:14px;font-family:DM Sans,sans-serif;background:white;color:var(--ink)" type="text" id="search-input" placeholder="🔍 Buscar por nome ou bairro..." oninput="filtrarEmpresas()">
+    <input style="flex:1;border:1.5px solid var(--border);border-radius:8px;padding:9px 14px;font-size:14px;font-family:'DM Sans',sans-serif;background:white;color:var(--ink)" type="text" id="search-input" placeholder="🔍 Buscar por nome ou bairro..." oninput="filtrarEmpresas()">
   </div>
   <div class="filters-row">
     <span class="filter-label">Filtrar:</span>
-    <select class="filter-select" id="filtro-bairro" onchange="filtrarEmpresas()" aria-label="Bairro">
+    <select class="filter-select" id="filtro-bairro" onchange="filtrarEmpresas()">
       <option value="">Todos os bairros</option>
     </select>
     <div class="filter-divider"></div>
-    <select class="filter-select" id="filtro-preco" onchange="filtrarEmpresas()" aria-label="Preço">
+    <select class="filter-select" id="filtro-preco" onchange="filtrarEmpresas()">
       <option value="">Qualquer preço</option>
       <option value="0-100">Até R$100/mês</option>
       <option value="0-150">Até R$150/mês</option>
@@ -230,7 +240,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
       <div class="beneficio"><span>⭐</span>Destaque por apenas R$9,90/mês</div>
       <div class="beneficio"><span>🆓</span>Cadastro 100% gratuito</div>
     </div>
-    <a class="btn-destaque" href="https://wa.me/5586000000000?text=Olá!%20Quero%20cadastrar%20minha%20empresa%20no%20AchaPI" target="_blank" rel="noopener">Cadastrar minha empresa gratuitamente</a>
+    <a class="btn-destaque" href="cadastro.html">Cadastrar minha empresa gratuitamente →</a>
   </div>
 </div>
 
@@ -242,13 +252,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
       <div class="footer-logo">Acha<span>PI</span></div>
       <div class="footer-copy">© 2026 · Comparador de serviços em Teresina</div>
     </div>
-    <a class="footer-ig" href="https://www.tiktok.com/@acha.brasil" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+    <a style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;transition:color .15s" href="https://www.tiktok.com/@acha.brasil" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
       @acha.brasil
     </a>
     <div class="footer-links">
+      <a href="cadastro.html">Cadastrar empresa</a>
       <a href="#">Privacidade</a>
-      <a href="#">Termos</a>
     </div>
   </div>
 </footer>
@@ -256,49 +266,60 @@ footer{background:var(--ink);color:rgba(255,255,255,.5);margin-top:auto}
 <script>
 const SUPABASE_URL='https://txyewyqknhkidglvqrew.supabase.co';
 const ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4eWV3eXFrbmhraWRnbHZxcmV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MzYxNjcsImV4cCI6MjA5MzMxMjE2N30.C8FymyLFRwiqJf99hFO3W8GuhP8IBO1MEkb9Wdwc1KM';
-const H={'apikey':ANON_KEY,'Authorization':`Bearer ${ANON_KEY}`};
-let todasEmpresas=[],todosPlanos=[],categoriaAtual=null,ordemAtual='destaque';
+const H={'apikey':ANON_KEY,'Authorization':'Bearer '+ANON_KEY};
+let todasEmpresas=[],todosPlanos=[],todasUnidades=[],categoriaAtual=null,ordemAtual='destaque';
 
-async function db(t,p=''){const r=await fetch(`${SUPABASE_URL}/rest/v1/${t}?${p}`,{headers:H});return r.json()}
+async function db(t,p=''){const r=await fetch(SUPABASE_URL+'/rest/v1/'+t+'?'+p,{headers:H});return r.json()}
 
 async function init(){
-  const[cats,emps,planos]=await Promise.all([
+  const[cats,emps,planos,unidades]=await Promise.all([
     db('categoria','order=id'),
     db('empresas','ativo=eq.true&order=destaque.desc,nome.asc'),
-    db('planos','order=preco.asc')
+    db('planos','order=preco.asc'),
+    db('unidades','order=empresa_id')
   ]);
-  todasEmpresas=emps;todosPlanos=planos;
-  document.getElementById('stat-empresas').textContent=emps.length;
+  todasEmpresas=Array.isArray(emps)?emps:[];
+  todosPlanos=Array.isArray(planos)?planos:[];
+  todasUnidades=Array.isArray(unidades)?unidades:[];
+
+  document.getElementById('stat-empresas').textContent=todasEmpresas.length;
+
   const grid=document.getElementById('cat-grid');
   const heroGrid=document.getElementById('hero-cats');
-  cats.forEach(cat=>{
-    // Sidebar cats
-    const c=document.createElement('div');c.className='cat-card';
-    const count=emps.filter(e=>e.categoria_id===cat.id).length;
-    c.innerHTML=`<span class="cat-emoji">${cat.icone}</span><div class="cat-info"><h3>${cat.nome}</h3><span>${count} listados</span></div>`;
-    c.onclick=()=>selecionarCategoria(cat.id,c);grid.appendChild(c);
-    // Hero cats
-    const hb=document.createElement('button');hb.className='hero-cat-btn';hb.id=`hero-cat-${cat.id}`;
-    hb.innerHTML=`<span class="hero-cat-emoji">${cat.icone}</span><div class="hero-cat-info"><div class="hero-cat-name">${cat.nome}</div><div class="hero-cat-count">${count} listados em Teresina</div></div>`;
-    hb.onclick=()=>escolherCategoria(cat.id,cat.nome);
-    heroGrid.appendChild(hb);
-  });
-  const bairros=[...new Set(emps.map(e=>e.bairro).filter(Boolean))].sort();
+  if(Array.isArray(cats)){
+    cats.forEach(cat=>{
+      const count=todasEmpresas.filter(e=>e.categoria_id===cat.id).length;
+      const c=document.createElement('div');
+      c.className='cat-card';
+      c.innerHTML=`<span class="cat-emoji">${cat.icone}</span><div class="cat-info"><h3>${cat.nome}</h3><span>${count} listados</span></div>`;
+      c.onclick=()=>selecionarCategoria(cat.id,c);
+      grid.appendChild(c);
+
+      const hb=document.createElement('button');
+      hb.className='hero-cat-btn';
+      hb.id='hero-cat-'+cat.id;
+      hb.innerHTML=`<span class="hero-cat-emoji">${cat.icone}</span><div><div class="hero-cat-name">${cat.nome}</div><div class="hero-cat-count">${count} listados em Teresina</div></div>`;
+      hb.onclick=()=>escolherCategoria(cat.id,cat.nome);
+      heroGrid.appendChild(hb);
+    });
+  }
+
+  const bairros=[...new Set(todasEmpresas.map(e=>e.bairro).filter(Boolean).flatMap(b=>b.split(',').map(s=>s.trim())))].sort();
   const sel=document.getElementById('filtro-bairro');
-  bairros.forEach(b=>sel.innerHTML+=`<option value="${b}">${b}</option>`);
+  bairros.forEach(b=>{if(b)sel.innerHTML+=`<option value="${b}">${b}</option>`});
+
   renderEmpresas(todasEmpresas);
 }
 
 function escolherCategoria(id,nome){
-  // Show listings section
   document.getElementById('listings-section').style.display='block';
   document.getElementById('listings-section').scrollIntoView({behavior:'smooth',block:'start'});
-  // Update hero cat buttons
   document.querySelectorAll('.hero-cat-btn').forEach(b=>b.classList.remove('active'));
-  const hb=document.getElementById(`hero-cat-${id}`);if(hb)hb.classList.add('active');
-  // Update sidebar
-  const cards=document.querySelectorAll('.cat-card');
-  cards.forEach(c=>{if(c.querySelector('h3')&&c.querySelector('h3').textContent===nome)c.classList.add('active');else c.classList.remove('active')});
+  const hb=document.getElementById('hero-cat-'+id);if(hb)hb.classList.add('active');
+  document.querySelectorAll('.cat-card').forEach(c=>{
+    const h3=c.querySelector('h3');
+    if(h3&&h3.textContent===nome)c.classList.add('active');else c.classList.remove('active');
+  });
   categoriaAtual=id;filtrarEmpresas();
 }
 
@@ -329,7 +350,7 @@ function filtrarEmpresas(){
   let lista=[...todasEmpresas];
   if(categoriaAtual)lista=lista.filter(e=>e.categoria_id===categoriaAtual);
   if(busca)lista=lista.filter(e=>e.nome.toLowerCase().includes(busca)||(e.bairro||'').toLowerCase().includes(busca));
-  if(bairro)lista=lista.filter(e=>e.bairro===bairro);
+  if(bairro)lista=lista.filter(e=>(e.bairro||'').includes(bairro));
   if(pf){const[min,max]=pf.split('-').map(Number);lista=lista.filter(e=>{const mp=menorPreco(e.id);return mp>=min&&mp<=max})}
   if(ordemAtual==='nome')lista.sort((a,b)=>a.nome.localeCompare(b.nome));
   else if(ordemAtual==='preco')lista.sort((a,b)=>menorPreco(a.id)-menorPreco(b.id));
@@ -340,8 +361,8 @@ function filtrarEmpresas(){
 
 async function registrarClique(id){
   const emp=todasEmpresas.find(e=>e.id===id);
-  if(emp)emp.cliques=(emp.cliques||0)+1;
-  await fetch(`${SUPABASE_URL}/rest/v1/empresas?id=eq.${id}`,{
+  if(emp){emp.cliques=(emp.cliques||0)+1;}
+  await fetch(SUPABASE_URL+'/rest/v1/empresas?id=eq.'+id,{
     method:'PATCH',
     headers:{...H,'Content-Type':'application/json','Prefer':'return=minimal'},
     body:JSON.stringify({cliques:(emp?.cliques||1)})
@@ -350,35 +371,69 @@ async function registrarClique(id){
 
 function labelData(d){
   if(!d)return null;
-  const diff=Math.floor((Date.now()-new Date(d))/(86400000));
-  if(diff<=30)return{txt:`Preços atualizados há ${diff} dias`,old:false};
-  if(diff<=90)return{txt:`Atualizado há ${Math.floor(diff/30)} meses`,old:false};
+  const diff=Math.floor((Date.now()-new Date(d))/86400000);
+  if(diff<=30)return{txt:'Preços atualizados há '+diff+' dias',old:false};
+  if(diff<=90)return{txt:'Atualizado há '+Math.floor(diff/30)+' meses',old:false};
   return{txt:'⚠️ Preços podem estar desatualizados',old:true};
+}
+
+function toggleUnidades(id){
+  const list=document.getElementById('ulist-'+id);
+  const arrow=document.getElementById('uarrow-'+id);
+  const isOpen=list.classList.contains('open');
+  list.classList.toggle('open',!isOpen);
+  arrow.classList.toggle('open',!isOpen);
 }
 
 function renderEmpresas(lista){
   const container=document.getElementById('companies-container');
-  document.getElementById('results-count').innerHTML=`<strong>${lista.length}</strong> resultado${lista.length!==1?'s':''} encontrado${lista.length!==1?'s':''}`;
-  if(!lista.length){container.innerHTML=`<div class="empty-state"><div class="emoji">🔍</div><h3>Nenhum resultado encontrado</h3><p>Tente ajustar os filtros ou buscar por outro bairro.</p></div>`;return}
+  document.getElementById('results-count').innerHTML='<strong>'+lista.length+'</strong> resultado'+(lista.length!==1?'s':'')+' encontrado'+(lista.length!==1?'s':'');
+  if(!lista.length){container.innerHTML='<div class="empty-state"><div class="emoji">🔍</div><h3>Nenhum resultado encontrado</h3><p>Tente ajustar os filtros ou buscar por outro bairro.</p></div>';return}
+
   const menorGlobal={};
   lista.forEach(e=>{const mp=menorPreco(e.id);if(!menorGlobal[e.categoria_id]||mp<menorGlobal[e.categoria_id])menorGlobal[e.categoria_id]=mp});
+
   const grid=document.createElement('div');grid.className='companies-grid';
+
   lista.forEach(empresa=>{
     const planos=todosPlanos.filter(p=>p.empresa_id===empresa.id);
+    const unidades=todasUnidades.filter(u=>u.empresa_id===empresa.id);
     const mp=menorPreco(empresa.id);
     const isMelhor=mp===menorGlobal[empresa.categoria_id]&&mp<9999;
     const di=labelData(empresa.atualizado_em);
+    const temMultiplasUnidades=unidades.length>1;
     const card=document.createElement('div');
     card.className='company-card'+(empresa.destaque?' destaque':'');
+
     card.innerHTML=`
       ${empresa.destaque?'<div class="destaque-badge">⭐ Destaque</div>':''}
-      <div><div class="company-name">${empresa.nome}</div><div class="company-bairro">📍 ${empresa.bairro||'Teresina, PI'}</div></div>
+      <div>
+        <div class="company-name">${empresa.nome}</div>
+        <div class="company-bairro">📍 ${empresa.bairro||'Teresina, PI'}${temMultiplasUnidades?` · <strong style="color:var(--green-dark)">${unidades.length} unidades</strong>`:''}</div>
+      </div>
       ${empresa.descricao?`<div class="company-desc">${empresa.descricao}</div>`:''}
       ${planos.length?`<div class="plans">${planos.slice(0,3).map(p=>`
         <div class="plan-item ${p.preco===mp&&isMelhor?'melhor':''}">
           <span class="plan-name">${p.nome}${p.preco===mp&&isMelhor?'<span class="melhor-badge">Melhor preço</span>':''}</span>
-          <span class="plan-price">R$ ${Number(p.preco).toFixed(2).replace('.',',')}<small style="font-size:10px;font-weight:400;color:var(--muted)">/mês</small></span>
+          <span class="plan-price">R$ ${Number(p.preco).toFixed(2).replace('.',',')}
+          <small style="font-size:10px;font-weight:400;color:var(--muted)">/mês</small></span>
         </div>`).join('')}</div>`:'<div style="font-size:13px;color:var(--muted)">Entre em contato para saber os preços</div>'}
+      ${temMultiplasUnidades?`
+        <button class="units-toggle" onclick="toggleUnidades(${empresa.id})">
+          <span class="units-toggle-label">📍 Ver endereços das unidades</span>
+          <span class="units-toggle-arrow" id="uarrow-${empresa.id}">▼</span>
+        </button>
+        <div class="units-list" id="ulist-${empresa.id}">
+          ${unidades.map(u=>`
+            <div class="unit-item">
+              <div class="unit-bairro">${u.bairro}</div>
+              <div class="unit-end">${u.endereco||'Consulte o endereço pelo contato'}</div>
+              ${u.whatsapp||u.telefone?`<div class="unit-contacts">
+                ${u.whatsapp?`<a class="unit-contact-btn unit-wpp" href="https://wa.me/55${u.whatsapp.replace(/\D/g,'')}" target="_blank" onclick="registrarClique(${empresa.id})">💬 WhatsApp</a>`:''}
+                ${u.telefone?`<a class="unit-contact-btn unit-tel" href="tel:${u.telefone}" onclick="registrarClique(${empresa.id})">📞 ${u.telefone}</a>`:''}
+              </div>`:''}
+            </div>`).join('')}
+        </div>`:``}
       ${di?`<div class="company-updated ${di.old?'old':''}">🕐 ${di.txt}</div>`:''}
       <div class="company-actions">
         ${empresa.whatsapp?`<a class="btn-wpp" href="https://wa.me/55${empresa.whatsapp.replace(/\D/g,'')}" target="_blank" rel="noopener" onclick="registrarClique(${empresa.id})">💬 WhatsApp</a>`:''}
